@@ -1,4 +1,3 @@
-
 public class ManWolf {
 
 	
@@ -41,51 +40,57 @@ public class ManWolf {
 			
 	};
 	
-	static private int DFAstate(int s, char c) {
+	static private int DFAstate(int s, char currentState) {
 	    switch (s) {
-	      case q0: switch (c) {
+	      case q0: switch (currentState) {
 	            case '0': return q0;
 	            case '1': return q1; 
 	            default: return q3;
 	          }
-	      case q1: switch (c) {
+	      case q1: switch (currentState) {
 	            case '0': return q2;
 	            case '1': return q0;
 	            default: return q3;
 	          }
-	      case q2: switch (c) {
+	      case q2: switch (currentState) {
 	            case '0': return q1;
 	            case '1': return q2; 
 	            default: return q3;
 	          }
 	      
-	      case q4: switch (c){
+	      case q4: switch (currentState){
 	      		case '0': return q1;
+	      		default: return q10;
 	      }
 	      
-	      case q5: switch (c){
+	      case q5: switch (currentState){
     		    case '0': return q1;
+    		    default: return q10;
 	      }
 	      
-	      case q6: switch (c){
+	      case q6: switch (currentState){
 	      		case '0': return q1;
+	      		default: return q10;
 	      }
     
 	      
 	      
-	      case q7: switch (c){
+	      case q7: switch (currentState){
     			case '0': return q1;
+    			default: return q10;
 	      }
     
-	      case q8: switch (c){
+	      case q8: switch (currentState){
 	      		case '0': return q1;
+	      		default: return q10;
 	      }
     
-	      case q9: switch (c){
+	      case q9: switch (currentState){
     			case '0': return q1;
+    			default: return q10;
 	      }
 	      
-	      default: return q3;
+	      default: return q10;
 	    }
 	    
 	    
