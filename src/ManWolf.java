@@ -1,3 +1,16 @@
+/**
+ * ManWolf
+ *
+ * This function works as a DFA the reads a string 
+ * This is done by using a for loop that goes through a string
+ * that is fetched from the driverDFA class and stepped though
+ * testing each input to see if its valid and giving it a newstate. 
+ * This will return a final state which will be test to see whether
+ * it is true or false in driverDFA.java
+ *   
+ * 
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,7 +41,7 @@ public class ManWolf {
 	
 		 
 			  
-		  
+		 //return value is a boolean that checks to see if the final state matches the succes state
 		 public boolean accepted() {
 			// TODO Auto-generated method stub
 			  //System.out.println(state==q7);
@@ -38,9 +51,8 @@ public class ManWolf {
 
 
 		/*
-		   * The transition function represented as an array.
-		   * The next state from current state s and character c
-		   * is at delta[s,c-'0'].
+		   * definition of the multidimesional array that acts as the DFA paths
+		   * called DFAArray
 		   */
 		  static private int[][] DFAArray = 
 			    {{q10,q1,q10,q10},
@@ -60,21 +72,21 @@ public class ManWolf {
 		   * @param in the String to use
 		   */
 		  
-		  public void process(String[] args) {
+		  public void process(String testString) {
 			 
-		    for (int i = 0; i < args.length; i++)  {
-		    	System.out.println("currentstate: " +state);
-		    	System.out.println("curchar: " +curchar);
-		    		if (curchar=="w"){
+		    for (int i = 0; i < testString.length(); i++)  {
+		    	//System.out.println("currentstate: " +state);
+		    	//System.out.println("curchar: " +testString.charAt(i));
+		    		if (testString.charAt(i)=='w'){
 		    			newState=0;
 		    		}
-				    if (curchar=="g"){
+				    if (testString.charAt(i)=='g'){
 				    	newState=1;
 				      }
-				    if (curchar=="c"){
+				    if (testString.charAt(i)=='c'){
 				    	newState=2;
 				      }
-				    if (curchar=="n"){
+				    if (testString.charAt(i)=='n'){
 				    	newState=3;
 				      }
 				    	 
