@@ -105,7 +105,7 @@ static private int[][] DFAARRAY =
 	  // System.out.print(state = DFAARRAY[state][newState]);
 	  state = DFAARRAY[state][newState];
 				      
-	  System.out.println("end state:" + state);
+	  //System.out.println("end state:" + state);
 				      }
 	catch (ArrayIndexOutOfBoundsException ex) {
 	   state = q10;      

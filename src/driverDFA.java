@@ -54,6 +54,11 @@ public class driverDFA extends JFrame {
         try {
           driverDFA frame = new driverDFA();
           frame.setVisible(true);
+          
+          ManWolf ManWolf = new ManWolf();
+          String testString = System.console().readLine();
+          ManWolf.reset();
+          ManWolf.process(testString);
 			}
 					
         catch (Exception e) {
