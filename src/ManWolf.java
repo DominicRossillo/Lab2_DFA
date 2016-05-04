@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 
 public class ManWolf {
 
-	
+  
 private static final int q0 = 0;
 private static final int q1 = 1;
 private static final int q2 = 2;
@@ -42,18 +42,19 @@ private static final int q7 = 7;
 private static final int q8 = 8;
 private static final int q9 = 9;
 private static final int q10 = 10;
-public int state;
-private int newState;
-	
-  public void reset() {	
+public static int state;
+private static int newState;
+  
+  public static void reset() {  
   state = q0;
 //System.out.println(state);
   }
-	
-		 
-			  
-//return value is a boolean that checks to see if the final state matches the success state
-public boolean accepted() {
+  
+     
+        
+//return value is a boolean that checks to see if the final state matches
+//the success state
+public static boolean accepted() {
   // TODO Auto-generated method stub
   //System.out.println(state==q7);
   return state==q7;
@@ -64,62 +65,55 @@ public boolean accepted() {
  */
 static private int[][] DFAARRAY = 
  {{q10,q1,q10,q10},
- {q10,q0,q10,q2},				
+ {q10,q0,q10,q2},        
  {q8,q10,q3,q2},
  {q10,q4,q2,q10},
- {q5,q3,q10,q10},				
- {q4,q10,q8,q6},			
- {q10,q7,q10,q5},			
- {q10,q6,q10,q10},				
+ {q5,q3,q10,q10},        
+ {q4,q10,q8,q6},      
+ {q10,q7,q10,q5},      
+ {q10,q6,q10,q10},        
  {q2,q9,q10,q10},
  {q10,q8,q5,q10},
  {q10,q10,q10,q10}};
  /**
   * This is the process function that moves through DFAARRAY
   * and determine what state the string parameters gets you 
-  * takes testString as a parameter which is determined by a user input in driverDFA.
+  * takes testString as a parameter which is determined by a 
+  * user input in driverDFA.
   */
-		  
- public void process(String testString) {
-	 
+      
+ public static void process(String testString) {
+   
   for (int i = 0; i < testString.length(); i++)  {
-	  	//System.out.println("currentstate: " +state);
-	   	//System.out.println("curchar: " +testString.charAt(i));
+      //System.out.println("currentstate: " +state);
+       //System.out.println("curchar: " +testString.charAt(i));
     if (testString.charAt(i)=='w'){
-	  newState=0;
-	}
-	if (testString.charAt(i)=='g'){
-	  newState=1;
-	}
-	if (testString.charAt(i)=='c'){
-	  newState=2;
-	}
-	if (testString.charAt(i)=='n'){
-	  newState=3;
-	}
-				    	 
-	try {
-	  // System.out.println(newState);
-	  // System.out.println(state);
+    newState=0;
+  }
+  if (testString.charAt(i)=='g'){
+    newState=1;
+  }
+  if (testString.charAt(i)=='c'){
+    newState=2;
+  }
+  if (testString.charAt(i)=='n'){
+    newState=3;
+  }
+               
+  try {
+    // System.out.println(newState);
+    // System.out.println(state);
       // System.out.println(newState);
-	  // System.out.print(state = DFAARRAY[state][newState]);
-	  state = DFAARRAY[state][newState];
-				      
-	  //System.out.println("end state:" + state);
-				      }
-	catch (ArrayIndexOutOfBoundsException ex) {
-	   state = q10;      
-	 }
-		     
-		    }
-		    
-		  }
-		  
-		 
-
-	    
-	
-
-	
-}
+    // System.out.print(state = DFAARRAY[state][newState]);
+    state = DFAARRAY[state][newState];
+              
+    //System.out.println("end state:" + state);
+       }
+  catch (ArrayIndexOutOfBoundsException ex) {
+     state = q10;}
+         
+        }
+        
+      }  
+     }
 
